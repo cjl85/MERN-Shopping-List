@@ -14,14 +14,14 @@ export default function(state = initialState, action) {
         items: action.payload,
         loading: false
     };
+    case ADD_ITEM:
+    return {
+      items: [action.payload, ...state.items]
+    };
     case DELETE_ITEM:
       return {
         ...state,
         items: state.items.filter(item => item._id !== action.payload)
-      };
-    case ADD_ITEM:
-      return {
-        items: [action.payload, ...state.items]
       };
     case ITEMS_LOADING:
       return {
