@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "export NODE_ENV=spec && jasmine",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
@@ -20,8 +20,10 @@
     "concurrently": "^4.1.0",
     "config": "^3.0.1",
     "express": "^4.16.4",
+    "jasmine": "^3.3.1",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.17"
+    "mongoose": "^5.4.17",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

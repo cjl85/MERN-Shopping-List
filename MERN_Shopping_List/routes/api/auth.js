@@ -12,8 +12,8 @@ const User = require('../../models/user');
 
 
 // POST api/auth
-// Authentic user
-// public
+// Authenticate user
+// public access
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
@@ -60,7 +60,7 @@ User.findOne({ email })
 // Get user data
 // private
 // select method to not return password
-// return promise with user 
+// return promise with user
 router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
     .select('-password')

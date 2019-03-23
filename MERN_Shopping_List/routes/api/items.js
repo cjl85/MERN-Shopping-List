@@ -34,8 +34,9 @@ router.post('/', auth, (req, res) => {
 
 router.delete('/:id', auth, (req, res) => {
   Item.findById(req.params.id)
-    .then(item => item.remove().then(() => res.json({ deleted: true })))
-    .catch(err => res.status(404).json({ deleted: false }));
+   .then(item => item.remove())
+   .then(() => res.json({ deleted: true }))
+   .catch(err => res.status(404).json({ deleted: false }));
 })
 
 
