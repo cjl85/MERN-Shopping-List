@@ -13,16 +13,21 @@ Use 'npm run dev' after installing 'concurrently' to run both the client and ser
 
 Register a user with name, email, and password. Only logged in users will be able to contribute to the list.
 
+Sample Email/PW that you can use to test the list:
+
+Email: cjl@gmail.com
+   PW: 123456
+
 
 ## Running the tests
 
-Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. `npm test` can be run in order to see if the specs pass.
+Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). Unit and integration tests were written for the different models with CRUD operations in mind. `npm test` can be run in order to see if the specs pass.
 
-`npm test ./client/src/spec/integration/users_spec.js`
+`npm test /client/src/spec/integration/users_spec.js`
 
-The unit tests test that each respective model is created properly as well as proper relationships with other models if applicable.
+The unit tests test that each respective model is created properly as well as include the proper relationships with other models if applicable.
 
-The integration tests for all the CRUD operations for each respective model. Below is an example for the users_spec file.
+The integration tests are for all the CRUD operations for each respective model. Below is an example for the users_spec file.
 
     describe("route : user", () => {
     // Connect to mongo database
@@ -47,8 +52,8 @@ The integration tests for all the CRUD operations for each respective model. Bel
             const options = {
                 url: `${base}/register`,
                 form: {
-                    email: "user@example.com",
-                    password: "botinty123"
+                    email: "cjl@gmail.com",
+                    password: "123456"
                 }
             }
 
