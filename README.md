@@ -104,14 +104,8 @@ describe("route : users", () => {
             });
           });
         });
-    });
-}
-
-## Deployment
-
-For Heroku, head over to Heroku and log in (or open an account if you don’t have one).
-
-Create a new app and give it a name
+     });
+    }
 
 
 
