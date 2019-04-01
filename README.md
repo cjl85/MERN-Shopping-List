@@ -9,7 +9,7 @@ To get started, please `git clone` the repository and be sure to `npm install` a
 
 Use 'npm run dev' after installing 'concurrently' to run both the client and server at the same time. 
 
-#Running the tests#
+## Running the tests
 
 Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. From the command line you can use npm test {test file pathway to test.
 
@@ -107,7 +107,7 @@ describe("route : users", () => {
     });
 }
 
-#Deployment#
+## Deployment
 
 For Heroku, head over to Heroku and log in (or open an account if you don’t have one).
 
