@@ -16,10 +16,10 @@ Register a user with name, email, and password. Only logged in users will be abl
 
 ## Running the tests
 
-Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. From the command line you can use npm test {test file pathway to test.
+Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. `npm test` can be run in order to see if the specs pass.
 
-$ npm test ./client/src/spec/integration/lists_spec.js
-Example
+`npm test ./client/src/spec/integration/lists_spec.js`
+
 The unit tests test that each respective model is created properly as well as proper relationships with other models if applicable.
 
 The integration tests for all the CRUD operations for each respective model. Below is an example for the lists_spec file.
