@@ -24,8 +24,8 @@ The unit tests test that each respective model is created properly as well as pr
 
 The integration tests for all the CRUD operations for each respective model. Below is an example for the lists_spec file.
 
-describe("route : users", () => {
-    // Connect to mongo database
+    describe("route : users", () => {
+     // Connect to mongo database
     beforeEach((done) => {
         mongoose
             .connect(mongoURI)
@@ -42,7 +42,7 @@ describe("route : users", () => {
                 console.log(err);
                 done();
             })
-    });
+      });
 
     describe("GET /lists", () => {
   
