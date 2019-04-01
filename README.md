@@ -15,8 +15,8 @@ Register a user with name, email, and password. Only logged in users will be abl
 
 Sample Email/PW that you can use to test the list:
 
-Email: cjl@gmail.com
-   PW: 123456
+`Email: cjl@gmail.com`
+   `PW: 123456`
 
 
 ## Running the tests
