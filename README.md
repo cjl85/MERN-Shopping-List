@@ -9,6 +9,16 @@ To get started, please `git clone` the repository and be sure to `npm install` a
 
 Use 'npm run dev' after installing 'concurrently' to run both the client and server at the same time. 
 
+## Register/SignIn
+
+Create a user by signing up on Sign Up link. Then you can sign in with new account on homepage Screenshot of sign up page
+
+Create a profile, and start checking out all shopping lists Screenshot of dashboard
+
+You will then see a list of grocery lists you can choose from as well as create your own. Lists of GruceryList
+
+Click on edit icon and you will see lists of items. You will also see a list of items on the list with the functionality to add an item, and mark an item as purchased/unpurchased and delete an item.
+
 ## Running the tests
 
 Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. From the command line you can use npm test {test file pathway to test.
