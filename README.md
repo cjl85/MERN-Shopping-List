@@ -18,100 +18,77 @@ Register a user with name, email, and password. Only logged in users will be abl
 
 Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the /client/spec file. Unit and integration tests were written for the different models with CRUD operations in mind. `npm test` can be run in order to see if the specs pass.
 
-`npm test ./client/src/spec/integration/lists_spec.js`
+`npm test ./client/src/spec/integration/users_spec.js`
 
 The unit tests test that each respective model is created properly as well as proper relationships with other models if applicable.
 
-The integration tests for all the CRUD operations for each respective model. Below is an example for the lists_spec file.
+The integration tests for all the CRUD operations for each respective model. Below is an example for the users_spec file.
 
-    describe("route : users", () => {
-     // Connect to mongo database
+    describe("route : user", () => {
+    // Connect to mongo database
     beforeEach((done) => {
         mongoose
-            .connect(mongoURI)
-            .then((res) => { 
-                List.create({
-                    title: "First List",
-                })
-                .then((list) => {
-                    this.list = list;
-                    done();
-                })
+            .connect(mongoURI, {
+              useNewUrlParser: true
+            })
+            .then(() => {
+                done();
             })
             .catch(err => {
                 console.log(err);
                 done();
-            })
-      });
-
-    describe("GET /lists", () => {
-  
-        it("should return a status code 200", (done) => {
-            request.get(base, (err, res, body) => {
-              expect(res.statusCode).toBe(200);
-              done();
             });
-          });
-      
     });
 
-    describe("POST /lists/create", () => {
-        const options = {
-            url: `${base}/`,
-            form: {
-                text: "My First List",
-            }
-        };
+    // Register user
+    describe("POST /user", () => {
+        it("should create a new user with valid values and redirect", (done) => {
 
-        it("should create a new list and redirect", (done) => {
+            const options = {
+                url: `${base}/register`,
+                form: {
+                    email: "user@example.com",
+                    password: "botinty123"
+                }
+            }
 
             request.post(options, (err, res, body) => {
-                List.findOne({where: {text: "My First List"}})
-                .then((list) => {
-                    // expect(res.statusCode).toBe(303);
-                    expect(list.title).toBe("My First List");
+                User.findOne({where: {email: "user@example.com"}})
+                .then((user) => {
+                    expect(user).not.toBeNull();
+                    expect(user.email).toBe("user@example.com");
+                    expect(user.id).toBe(1);
                     done();
                 })
                 .catch((err) => {
                     console.log(err);
                     done();
                 })
-            })
-        })
-    });
-
-
-    describe("GET /lists/:id", () => {
-
-        it("should render a view with the selected list", (done) => {
-          request.get(`${base}/${this.list.id}`, (err, res, body) => {
-            expect(err).toBeNull();
-            done();
-          });
-        });
-    });
-
-
-    describe("POST /lists/:id/destroy", () => {
-        it("should delete the list with the associated ID", (done) => {
-          List.all()
-          .then((lists) => {
-            const listCountBeforeDelete = lists.length;
-            expect(listCountBeforeDelete).toBe(1);
-            request.post(`${base}/${this.list.id}/destroy`, (err, res, body) => {
-              List.all()
-              .then((lists) => {
-                expect(err).toBeNull();
-                expect(lists.length).toBe(listCountBeforeDelete - 1);
-                done();
-              })
-   
             });
-          });
-        });
+        })
+
+
+    it("should not create a new user with invalid attributes and redirect", (done) => {
+        request.post(
+          {
+            url: `${base}/register`,
+            form: {
+              email: "no",
+              password: "123456789"
+            }
+          },
+          (err, res, body) => {
+            User.findOne({where: {email: "no"}})
+            .then((user) => {
+              expect(user).toBeNull();
+              done();
+            })
+            .catch((err) => {
+              console.log(err);
+              done();
+            });
+          }
+        );
+      });
      });
-    }
-
-
-
-
+    });
