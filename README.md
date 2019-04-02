@@ -7,7 +7,7 @@ and exiting transititons for components.
 
 To get started, please `git clone` the repository and be sure to `npm install` as well to account for the missing `node_modules`. Also be sure to add your `MONGO_URI` to the default.json file. Please be sure you set an env variable and the jwtSecret on deployment as well. 
 
-Use 'npm run dev' after installing 'concurrently' to run both the client and server at the same time. 
+Use `npm run dev` after installing `concurrently` to run both the client and server at the same time. 
 
 ## Register/LogIn
 
