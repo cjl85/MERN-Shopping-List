@@ -13,7 +13,7 @@ Use `npm run dev` after installing `concurrently` to run both the client and ser
 
 Register a user with name, email, and password. Only logged in users will be able to contribute to the list.
 
-Users will be able to add and delete items off the list through the modal that pops up when you click on the `add items` button.
+Users will be able to add and delete items off the list through the modal that pops up when you click on the `Add Items` button.
 
 Sample Email/PW that you can use to test the list:
 
